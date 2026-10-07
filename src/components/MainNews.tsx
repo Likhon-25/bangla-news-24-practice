@@ -17,7 +17,7 @@ const MainNews = ({ news }: { news: News[] }) => {
 
   //  ------------- or-------------
     const otherNews = news.slice(1);
-    console.log(otherNews);
+    // console.log(otherNews);
 
   if (!firstNews) return null;
 

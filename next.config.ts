@@ -5,6 +5,26 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   reactCompiler: true,
+  images:{
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**'
+      },
+      // {
+      //   protocol: 'https',
+      //   hostname: 'ichef.bbci.co.uk'
+      // },
+      // {
+      //   protocol: 'http', 
+      //   hostname: 'admin3', 
+      // },
+      // {
+      //   protocol: "https",
+      //   hostname: "lh3.googleusercontent.com",
+      // },
+    ]
+  },
   turbopack: {
     rules: {
       "*.css": {

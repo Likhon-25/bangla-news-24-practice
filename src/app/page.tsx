@@ -1,19 +1,28 @@
+import MainNews from "@/components/MainNews";
 import Marquee from "@/components/Marquee";
 
-const page = () => {
+export default async function Home(){
+  const res = await fetch('https://news-api-v2.vercel.app/api/news/sections')
+  const data = await res.json()
+  const section  = data.data
+
+  const mainNews = section[0].articles
+
+  console.log(mainNews);
   return (
     <div>
       <Marquee />
 
       <div className="grid grid-cols-3 max-w-7xl mx-auto">
         {/* news section */}
-        <div className="bg-red-500 col-span-2 p-10"></div>
+        <div className="col-span-2">
+          <MainNews news={mainNews} />
+        </div>
 
         {/* most news section */}
-        <div className="bg-green-500 col-span-1 p-10"></div>
+        <div className="bg-green-500 col-span-1"></div>
       </div>
     </div>
   );
 };
 
-export default page;

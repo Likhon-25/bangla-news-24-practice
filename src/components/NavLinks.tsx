@@ -10,14 +10,14 @@ interface NavItem {
 const NavLinks = async () => {
   const res = await fetch("https://news-api-v2.vercel.app/api/categories");
   const data = await res.json();
-  const navs = data.data;
+  const navs: NavItem[] = data.data;
   const NavLinks = navs.filter((n: NavItem) => n.scrapable);
 
   return (
     <div className="flex  gap-5 justify-center mt-5">
       <Link href={"/"}>হোম</Link>
       {NavLinks.map((n: NavItem, i: number) => (
-        <Link key={i} href={n.slug}>
+        <Link key={i} href={`/category/${n.slug}`}>
           {n.title}
         </Link>
       ))}
